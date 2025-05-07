@@ -23,13 +23,6 @@ public class AdminDonationController {
     @Autowired
     private DonationService donationService;
     
-    @PostMapping("/donation/add")
-    public String getDonation(@ModelAttribute Donation donation, RedirectAttributes redirectAttributes) {
-        Donation addedDonation = donationService.addDonation(donation);
-        redirectAttributes.addFlashAttribute("showSuccessModal", true);
-        return "redirect:/donate";
-    }
-    
     @GetMapping("/donation/all")
     public String allDonations(Model model) {
         return allDonation(model, 0, 10);
