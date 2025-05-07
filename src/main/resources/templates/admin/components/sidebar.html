@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="sidebar" th:fragment="sidebar">
+    <div class="sidebar-header">
+        <h3 class="brand">
+<!--            <i class="fa-solid fa-link"></i>-->
+            <i class="fa-solid fa-globe"></i>
+<!--            <img th:src="@{/user/img/logo.png}" width="70px"; height="50px" alt="">-->
+            <span style="font-size:18px;">ABC Company</span>
+        </h3>
+        <label for="sidebar-toggle" style="cursor: pointer;"><i class="fa-solid fa-bars"></i></label>
+    </div>
+    <div class="sidebar-menu">
+        <ul>
+            <li>
+                <a th:href="@{/admin/}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a th:href=@{/admin/activity/all}>
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <span>All Activity</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/activity/add}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </div>
+                    <span>Add Activity</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/banners/all}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-images"></i>
+                    </div>
+                    <span>All Banner</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/banner/add}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
+                    <span>Add Banner</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/blog/add}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <span>Add Blog</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/blogs/all}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-truck-medical"></i>
+                    </div>
+                    <span>All Blog</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/news/add}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <span>Add News</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/news/all}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-square-plus"></i>
+                    </div>
+                    <span>All News</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/team/add}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <span>Add Team</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/teams/all}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <span>All Team</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/gallery/add}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+                    <span>Add Gallery</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/admin/gallery/all}">
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-list"></i>
+                    </div>
+                    <span>All Gallery</span>
+                </a>
+            </li>
+            <li>
+                <a th:href=@{/admin/contact/all}>
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <span>All ContactUs</span>
+                </a>
+            </li>
+            <li>
+                <a th:href=@{/admin/donation/all}>
+                    <div style="width: 1.1rem;">
+                        <i class="fa-solid fa-money-check-dollar"></i>
+                    </div>
+                    <span>All Donation</span>
+                </a>
+            </li>
+
+<!--            <li>-->
+<!--                <a th:href="@{/admin/testimonial/add}">-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-regular fa-user"></i>-->
+<!--                    </div>-->
+<!--                    <span>Add Testimonial</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:href="@{/admin/testimonials/all}">-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-regular fa-clipboard"></i>-->
+<!--                    </div>-->
+<!--                    <span>All Testimonial</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:href="@{/admin/blog/add}">-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-regular fa-user"></i>-->
+<!--                    </div>-->
+<!--                    <span>Add Blog</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:href="@{/admin/blogs/all}">-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-regular fa-clipboard"></i>-->
+<!--                    </div>-->
+<!--                    <span>All Blogs</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:href="@{/admin/blog/add}">-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-solid fa-book"></i>-->
+<!--                    </div>-->
+<!--                    <span>Add Blog</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:href="@{/admin/blogs/all}">-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-solid fa-book-open"></i>-->
+<!--                    </div>-->
+<!--                    <span>All Blogs</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:href="@{/admin/banner/add}">-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-solid fa-ticket"></i>-->
+<!--                    </div>-->
+<!--                    <span>Add Banner</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:href="@{/admin/banners/all}">-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-solid fa-table"></i>-->
+<!--                    </div>-->
+<!--                    <span>All Banners</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:href="@{/admin/gallery/add}">-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-regular fa-folder"></i>-->
+<!--                    </div>-->
+<!--                    <span>Add Gallery</span>-->
+
+<!--                </a>-->
+<!--            </li>-->
+
+<!--            <li>-->
+<!--                <a th:href=@{/admin/contact/all}>-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-solid fa-address-card"></i>-->
+<!--                    </div>-->
+<!--                    <span>All ContactUs</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:href=@{/report/show-all}>-->
+<!--                    <div style="width: 1.1rem;">-->
+<!--                        <i class="fa-solid fa-book-open"></i>-->
+<!--                    </div>-->
+<!--                    <span>Reports</span>-->
+<!--                </a>-->
+<!--            </li>-->
+            <li>
+                <a th:href=@{/logout}>
+                    <div style="width: 1.1rem;">
+                        <i class="fa fa-sign-out"></i>
+                    </div>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

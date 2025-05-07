@@ -1,0 +1,18 @@
+<div class="posts-grid" th:fragment="news">
+    <!-- Blog Post 1 -->
+    <article class="blog-card" data-category="conservation" th:each="news : ${newses}">
+        <div class="card-image">
+            <img th:src="|data:image/jpeg;base64,${news.image}|" alt="Water conservation techniques">
+            <span class="category-tag">Conservation</span>
+        </div>
+        <div class="card-content">
+            <!--                    <div class="post-meta">-->
+            <!--                        <span class="date"><i class="far fa-calendar"></i> June 15, 2023</span>-->
+            <!--                        <span class="author"><i class="far fa-user"></i> By Rajesh Patil</span>-->
+            <!--                    </div>-->
+            <h3 class="post-title" th:text="${news.title}">Traditional Water Harvesting Methods in Maharashtra</h3>
+            <p class="post-excerpt" th:text="${news.description}">Discover how ancient techniques like johads and bawdis are making a comeback in rural Maharashtra, helping communities combat drought...</p>
+            <a th:href="@{'/news/desc/'+${news.title}}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </article>
+</div>

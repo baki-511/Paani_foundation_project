@@ -1,0 +1,51 @@
+<!-- Charts and Tables -->
+<div class="dashboard-grid" th:fragment="dashboard-grid">
+    <!-- Revenue Chart -->
+<!--    <div class="chart-container">-->
+<!--        <h2>Weekly Revenue</h2>-->
+<!--        <canvas id="revenueChart"></canvas>-->
+<!--    </div>-->
+
+    <!-- Popular Items -->
+    <div class="popular-items">
+        <h2>Popular Items</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Item</th>
+                <th>Orders</th>
+                <th>Revenue</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.productName}">Cappuccino</td>
+                <td th:text="${product.totalQuantity}">56</td>
+                <td >₹ [[${product.totalRevenue}]]</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Recent Orders -->
+    <div class="recent-orders">
+        <div class="recent-order-heading" style="display:flex; column-gap:10px;">
+            <h2>Recent Orders</h2>
+            <div class="order-status ready">
+                <a th:href="@{/admin/orders/all}">View All</a>
+            </div>
+        </div>
+        <div class="orders-list">
+            <div class="order-item" th:each="order : ${orders}">
+                <div class="order-id" th:text="${order.orderId}">#ORD-4567</div>
+                <div class="order-time" th:text="${order.time}">10:25 AM</div>
+                <div class="order-amount" >$ [[${order.total}]]</div>
+                <div class="order-status completed">
+                    <a th:href="@{/admin/invoice(invoiceId=${order.orderId})}" >View</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

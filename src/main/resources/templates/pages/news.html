@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Paani Foundation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--    Common Css-->
+    <div th:replace="~{common :: common(~{::link})}"></div>
+    <link rel="stylesheet" th:href="@{/user/css/blog.css}">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar" th:fragment="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="/user/img/logo.png" alt="Paani Foundation Logo" >
+            <span>Paani Foundation</span>
+        </a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/activity}">Activities</a></li>
+                <li><a th:href="@{/blog/all}" >Blog</a></li>
+                <li><a th:href="@{/news/all}" class="active">News</a></li>
+                <li><a th:href="@{/gallery/all}">Gallery</a></li>
+                <li><a th:href="@{/contact}" >Contact Us</a></li>
+                <li><a th:href="@{/donate}" class="btn donate-btn">Donate Now</a></li>
+            </ul>
+        </div>
+
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+</nav>
+
+<!-- Blog Hero Section -->
+<section class="blog-hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>News Section</h1>
+            <p>Insights, stories and innovations in water conservation</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Blog Posts Section -->
+<section class="blog-posts">
+    <div class="container">
+
+        <div th:replace="~{components/news :: news}"></div>
+
+        <div class="pagination">
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn next">Next <i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+
+<!--Footer Section -->
+<div th:replace="~{components/footer :: footer}"></div>
+
+
+<!-- Common Js -->
+<div th:replace="~{common :: common_js(~{::script})}"></div>
+
+</body>
+</html>

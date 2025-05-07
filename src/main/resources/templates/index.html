@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Water Foundation</title>
+    <!--    Common Css-->
+    <div th:replace="~{common :: common(~{::link})}"></div>
+    <link rel="stylesheet" th:href="@{/user/css/blog.css}">
+    <link rel="stylesheet" th:href="@{/user/css/gallery.css}">
+    <link rel="stylesheet" th:href="@{/user/css/about1.css}">
+
+    <style>
+        .gallery-section{
+            padding-bottom: 0px;
+        }
+
+        .gallery-grid{
+            margin-bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- Navbar -->
+<nav class="navbar" th:fragment="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="/user/img/logo.png" alt="Paani Foundation Logo" >
+            <span>Paani Foundation</span>
+        </a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a th:href="@{/home}" class="active">Home</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/activity}">Activities</a></li>
+                <li><a th:href="@{/blog/all}">Blog</a></li>
+                <li><a th:href="@{/news/all}">News</a></li>
+                <li><a th:href="@{/gallery/all}">Gallery</a></li>
+                <li><a th:href="@{/contact}" >Contact Us</a></li>
+                <li><a th:href="@{/donate}" class="btn donate-btn">Donate Now</a></li>
+            </ul>
+        </div>
+
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+</nav>
+
+<!--Banner Section-->
+<div th:replace="~{components/banner :: banner}"></div>
+
+<!--About Section-->
+<div th:replace="~{components/about :: about}"></div>
+
+<!--Activity Section -->
+<div th:replace="~{components/activity :: activity}"></div>
+
+<!--Blog Section -->
+<div class="container">
+    <h2 class="section-title" style="margin-bottom: 30px;">Blog Section</h2>
+    <div th:replace="~{components/blog :: blog}"></div>
+    <div style="text-align: center;">
+        <a th:href="@{/blog/all}" style="color: red; text-decoration:none;">View All</a>
+    </div>
+</div>
+
+<!--News Section -->
+<div class="container" style="margin-top: 50px;">
+    <h2 class="section-title" style="margin-bottom: 30px;">News Section</h2>
+    <div th:replace="~{components/news :: news}"></div>
+    <div style="text-align: center;">
+        <a th:href="@{/news/all}" style="color: red; text-decoration:none;">View All</a>
+    </div>
+</div>
+
+<!--Gallery Section -->
+<div>
+    <div th:replace="~{components/gallery :: gallery}"></div>
+    <div style="text-align: center; margin-bottom: 50px;">
+        <a th:href="@{/gallery/all}" style="color: red; text-decoration:none;">View All</a>
+    </div>
+</div>
+
+<!--Activity Section -->
+<div style="margin-bottom: 50px;">
+    <div th:replace="~{components/about :: team}"></div>
+</div>
+
+
+<!--Footer Section -->
+<div th:replace="~{components/footer :: footer}"></div>
+
+
+<!-- Common Js -->
+<div th:replace="~{common :: common_js(~{::script})}"></div>
+<script th:src="@{/user/js/gallery.js}"></script>
+
+<!--<script th:src=@{/user/js/banner.js}></script>-->
+</body>
+</html>

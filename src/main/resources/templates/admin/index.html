@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Paani Foundation</title>
+    <!--    Common Css-->
+    <div th:replace="~{admin/common :: common(~{::link})}"></div>
+    <link rel="stylesheet" th:href=@{/admin/css/home.css}> <link
+    rel="stylesheet" th:href=@{/admin/css/dashboard.css}>
+
+    <style>
+      @media (max-width: 576px) {
+        .sidebar {
+          width: 80px;
+        }
+
+        .main-content {
+          margin-left: 80px;
+        }
+
+        .main-content header {
+          left: 80px;
+          width: calc(100% - 60px);
+        }
+
+        .content{
+            padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" id="sidebar-toggle" />
+    <!--Sidebar -->
+    <div th:replace="~{admin/components/sidebar :: sidebar}"></div>
+
+    <!--Main Content -->
+    <div class="main-content">
+      <header th:replace="~{admin/components/header :: header}"></header>
+      <main>
+        <!--        <div th:replace="~{admin/components/stat-card :: stat-card}"></div>-->
+        <div th:replace="~{admin/components/dashboard :: dashboard}"></div>
+      </main>
+    </div>
+
+    <!--Common Js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div th:replace="~{admin/common :: common_js(~{::script})}"></div>
+    <script th:src="@{/admin/js/dashboard.js}"></script>
+  </body>
+</html>

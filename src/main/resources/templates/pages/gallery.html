@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Gallery with Lightbox</title>
+<!--    Common CSS-->
+    <div th:replace="~{common :: common(~{::link})}"></div>
+    <link rel="stylesheet" th:href="@{/user/css/gallery.css}">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar" th:fragment="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="/user/img/logo.png" alt="Paani Foundation Logo" >
+            <span>Paani Foundation</span>
+        </a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/activity}">Activities</a></li>
+                <li><a th:href="@{/blog/all}" >Blog</a></li>
+                <li><a th:href="@{/news/all}" >News</a></li>
+                <li><a th:href="@{/gallery/all}" class="active">Gallery</a></li>
+                <li><a th:href="@{/contact}" >Contact Us</a></li>
+                <li><a th:href="@{/donate}" class="btn donate-btn">Donate Now</a></li>
+            </ul>
+        </div>
+
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div th:replace="~{components/gallery :: gallery}"></div>
+
+
+
+<!--Footer Section -->
+<div th:replace="~{components/footer :: footer}"></div>
+
+
+<!-- Common Js -->
+<div th:replace="~{common :: common_js(~{::script})}"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script th:src="@{/user/js/gallery.js}"></script>
+</body>
+</html>

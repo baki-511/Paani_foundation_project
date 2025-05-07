@@ -1,0 +1,27 @@
+<!-- Navbar -->
+<nav class="navbar" th:fragment="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="/user/img/logo.png" alt="Paani Foundation Logo" >
+            <span>Paani Foundation</span>
+        </a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a th:href="@{/home}" class="active">Home</a></li>
+                <li><a th:href="@{/activity}">Activities</a></li>
+                <li><a th:href="@{/blog/all}">Blog</a></li>
+                <li><a th:href="@{/news/all}">News</a></li>
+                <li><a th:href="@{/gallery/all}">Gallery</a></li>
+                <li><a th:href="@{/contact}" >Contact Us</a></li>
+                <li><a th:href="@{/donate}" class="btn donate-btn">Donate Now</a></li>
+            </ul>
+        </div>
+
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+</nav>

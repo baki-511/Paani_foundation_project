@@ -1,0 +1,5 @@
+<div th:if="${message}" id="toast-box" th:fragment="toast">
+    <div class="toast-msg">
+        <i class="fa-solid fa-circle-check"></i> <span th:text="${message}"></span>
+    </div>
+</div>

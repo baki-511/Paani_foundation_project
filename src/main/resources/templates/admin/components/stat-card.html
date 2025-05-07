@@ -1,0 +1,52 @@
+<!-- Stats Cards -->
+<div class="stats-cards" th:fragment="stat-card">
+    <div class="card">
+        <div class="card-icon" style="background-color: #ff6b6b">
+            <i class="fas fa-receipt"></i>
+        </div>
+        <div class="card-info">
+            <h3>Today's Orders</h3>
+            <p class="count" th:text="${today.orders}">24</p>
+<!--            <p class="trend up">-->
+<!--                <i class="fas fa-arrow-up"></i> 12% from yesterday-->
+<!--            </p>-->
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-icon" style="background-color: #48dbfb">
+            <i class="fas fa-dollar-sign"></i>
+        </div>
+        <div class="card-info">
+            <h3>Today's Revenue</h3>
+            <p class="count" >₹ [[${today.revenue}]]</p>
+<!--            <p class="trend up">-->
+<!--                <i class="fas fa-arrow-up"></i> 8% from yesterday-->
+<!--            </p>-->
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-icon" style="background-color: #1dd1a1">
+            <i class="fas fa-users"></i>
+        </div>
+        <div class="card-info">
+            <h3>Total Customers</h3>
+            <p class="count" th:text="${today.totalCustomers}">9</p>
+<!--            <p class="trend down">-->
+<!--                <i class="fas fa-arrow-down"></i> 2% from yesterday-->
+<!--            </p>-->
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-icon" style="background-color: #feca57">
+            <i class="fas fa-utensils"></i>
+        </div>
+        <div class="card-info">
+            <h3>Menu Items</h3>
+            <p class="count" th:text="${today.totalMenuItems}">42</p>
+<!--            <p class="trend">No change</p>-->
+        </div>
+    </div>
+</div>

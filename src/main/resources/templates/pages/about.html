@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Paani Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--    Common Css-->
+    <div th:replace="~{common :: common(~{::link})}"></div>
+    <link rel="stylesheet" th:href="@{/user/css/about1.css}">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar" th:fragment="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="/user/img/logo.png" alt="Paani Foundation Logo" >
+            <span>Paani Foundation</span>
+        </a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/about}" class="active">About</a></li>
+                <li><a th:href="@{/activity}">Activities</a></li>
+                <li><a th:href="@{/blog/all}">Blog</a></li>
+                <li><a th:href="@{/news/all}">News</a></li>
+                <li><a th:href="@{/gallery/all}">Gallery</a></li>
+                <li><a th:href="@{/contact}" >Contact Us</a></li>
+                <li><a th:href="@{/donate}" class="btn donate-btn">Donate Now</a></li>
+            </ul>
+        </div>
+
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- Hero Section -->
+<section class="about-hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <h1>Our Water Revolution</h1>
+            <p>Transforming Maharashtra from drought-prone to water-abundant</p>
+            <a href="#our-mission" class="btn hero-btn">Learn Our Story</a>
+        </div>
+    </div>
+    <div class="wave-shape">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#fff"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#fff"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#fff"></path>
+        </svg>
+    </div>
+</section>
+
+<!--About Section-->
+<!--<div th:replace="~{components/about :: about}"></div>-->
+
+<!-- About Us Section -->
+<!--<section class="about-section" th:fragment="about">-->
+<!--    <div class="container">-->
+<!--        <div class="section-header">-->
+<!--            <h2>About Paani Foundation</h2>-->
+<!--            <div class="underline"></div>-->
+<!--        </div>-->
+
+<!--        <div class="about-content">-->
+<!--            <div class="about-text">-->
+<!--                <p>Paani Foundation is a non-profit organization established in 2016 with the mission to make Maharashtra drought-free through community participation and scientific water conservation techniques.</p>-->
+
+<!--                <p>Founded by Satyajit Bhatkal and the team behind the TV show Satyamev Jayate, Paani Foundation works to empower rural communities to solve their own water problems through the annual Water Cup competition and year-round training programs.</p>-->
+
+<!--                <div class="stats">-->
+<!--                    <div class="stat-item">-->
+<!--                        <h3>5000+</h3>-->
+<!--                        <p>Villages Trained</p>-->
+<!--                    </div>-->
+<!--                    <div class="stat-item">-->
+<!--                        <h3>10000+</h3>-->
+<!--                        <p>Water Structures Built</p>-->
+<!--                    </div>-->
+<!--                    <div class="stat-item">-->
+<!--                        <h3>1M+</h3>-->
+<!--                        <p>People Impacted</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="about-image">-->
+<!--                <img src="/user/img/banner1.jpg" alt="Paani Foundation Team">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+
+<!-- Mission Section -->
+<section class="mission-section" id="our-mission">
+    <div class="container">
+        <div class="section-header">
+            <span class="subtitle">Our Purpose</span>
+            <h2>Mission & Vision</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="mission-grid">
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h3>Our Mission</h3>
+                <p>To make Maharashtra drought-free by empowering rural communities with water conservation techniques and sustainable watershed management.</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Our Vision</h3>
+                <p>A Maharashtra where every village is water-sufficient, ecosystems are thriving, and communities are resilient to climate change.</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <i class="fas fa-hand-holding-water"></i>
+                </div>
+                <h3>Our Approach</h3>
+                <p>Community-driven solutions, scientific watershed development, and large-scale public participation through the Water Cup competition.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Story Section -->
+<!-- <section class="story-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="subtitle">Our Journey</span>
+            <h2>The Paani Story</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="story-timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">2016</div>
+                <div class="timeline-content">
+                    <h3>Foundation Established</h3>
+                    <p>Founded by Satyajit Bhatkal and the team behind Satyamev Jayate to address Maharashtra's water crisis.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2017</div>
+                <div class="timeline-content">
+                    <h3>First Water Cup</h3>
+                    <p>Launched the Water Cup competition with 30 participating villages creating watershed structures.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2019</div>
+                <div class="timeline-content">
+                    <h3>Scaling Up</h3>
+                    <p>Expanded to 1,000+ villages with measurable increases in water availability across regions.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-content">
+                    <h3>Transformation</h3>
+                    <p>Over 5,000 villages trained, creating 10,000+ water conservation structures impacting 1M+ lives.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- Team Section -->
+<section class="team-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="subtitle">Meet The Team</span>
+            <h2>Our Leadership</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card" th:each="team : ${teams}">
+                <div class="team-image">
+                    <img th:src="|data:image/jpeg;base64,${team.image}|" alt="Satyajit Bhatkal">
+<!--                    <div class="social-links">-->
+<!--                        <a href="#"><i class="fab fa-linkedin-in"></i></a>-->
+<!--                        <a href="#"><i class="fab fa-twitter"></i></a>-->
+<!--                    </div>-->
+                </div>
+                <h3 th:text="${team.name}">Satyajit Bhatkal</h3>
+                <p th:text="${team.designation}">Founder & CEO</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Impact Section -->
+<section class="impact-section">
+    <div class="container">
+        <div class="impact-overlay"></div>
+        <div class="impact-content">
+            <div class="section-header">
+                <span class="subtitle">Making Waves</span>
+                <h2>Our Impact</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="impact-stats">
+                <div class="stat-item">
+                    <h3 data-count="5000">0</h3>
+                    <p>Villages Trained</p>
+                </div>
+
+                <div class="stat-item">
+                    <h3 data-count="10000">0</h3>
+                    <p>Water Structures</p>
+                </div>
+
+                <div class="stat-item">
+                    <h3 data-count="1000000">0</h3>
+                    <p>Lives Impacted</p>
+                </div>
+
+                <div class="stat-item">
+                    <h3 data-count="75">0</h3>
+                    <p>% Water Increase</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partners Section -->
+<section class="partners-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="subtitle">Collaboration</span>
+            <h2>Our Partners</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="partners-slider">
+            <div class="partner-logo">
+                <img src="/user/img/mh.jpg" alt="Government of Maharashtra">
+            </div>
+            <div class="partner-logo">
+                <img src="/user/img/logo2.png" alt="TATA Trusts">
+            </div>
+            <div class="partner-logo">
+                <img src="/user/img/tata.png" alt="UNDP">
+            </div>
+            <div class="partner-logo">
+                <img src="/user/img/undp.webp" alt="WOTR">
+            </div>
+            <div class="partner-logo">
+                <img src="/user/img/mh.jpg" alt="NABARD">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Join Our Water Revolution</h2>
+            <p>Whether you want to volunteer, partner with us, or support our work, we'd love to connect.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn primary-btn">Get Involved</a>
+                <a href="#" class="btn secondary-btn">Donate Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Footer Section -->
+<div th:replace="~{components/footer :: footer}"></div>
+
+<!-- Common Js -->
+<script th:src="@{/user/js/about.js}"></script>
+<div th:replace="~{common :: common_js(~{::script})}"></div>
+</body>
+</html>

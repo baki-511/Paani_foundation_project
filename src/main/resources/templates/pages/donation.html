@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate | Paani Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--    Common Css-->
+    <div th:replace="~{common :: common(~{::link})}"></div>
+    <link rel="stylesheet" th:href="@{/user/css/donation.css}">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar" th:fragment="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="/user/img/logo.png" alt="Paani Foundation Logo" >
+            <span>Paani Foundation</span>
+        </a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/activity}">Activities</a></li>
+                <li><a th:href="@{/blog/all}">Blog</a></li>
+                <li><a th:href="@{/news/all}">News</a></li>
+                <li><a th:href="@{/gallery/all}">Gallery</a></li>
+                <li><a th:href="@{/contact}" >Contact Us</a></li>
+                <li><a th:href="@{/donate}" class="btn donate-btn">Donate Now</a></li>
+            </ul>
+        </div>
+
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Donation Hero -->
+<section class="donation-hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <h1>Make Every Drop Count</h1>
+            <p>Your donation helps us train villages in water conservation and create drought-free communities</p>
+        </div>
+    </div>
+</section>
+
+<!-- Donation Impact -->
+<section class="impact-section">
+    <div class="container">
+        <div class="impact-grid">
+            <div class="impact-card">
+                <i class="fas fa-tint"></i>
+                <h3>₹500</h3>
+                <p>Trains 1 villager in water conservation</p>
+            </div>
+            <div class="impact-card">
+                <i class="fas fa-hand-holding-water"></i>
+                <h3>₹2,500</h3>
+                <p>Helps build 1 meter of check dam</p>
+            </div>
+            <div class="impact-card">
+                <i class="fas fa-users"></i>
+                <h3>₹10,000</h3>
+                <p>Supports training for an entire family</p>
+            </div>
+            <div class="impact-card">
+                <i class="fas fa-village"></i>
+                <h3>₹50,000</h3>
+                <p>Sponsors watershed work in 1 village</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Donation Form -->
+<section class="donation-form-section">
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Donate to Paani Foundation</h2>
+                <p>Help us make Maharashtra drought-free</p>
+            </div>
+
+            <form id="donationForm" th:action="@{/admin/donation/add}" method="post" >
+                <div class="form-group">
+                    <label for="amount">Donation Amount (₹)</label>
+                    <div class="amount-options">
+                        <button type="button" class="amount-option" data-amount="500">500</button>
+                        <button type="button" class="amount-option" data-amount="1000">1,000</button>
+                        <button type="button" class="amount-option" data-amount="2500">2,500</button>
+                        <button type="button" class="amount-option" data-amount="5000">5,000</button>
+                        <button type="button" class="amount-option" data-amount="10000">10,000</button>
+                    </div>
+                    <div class="custom-amount">
+                        <input type="number" id="amount" name="amount" placeholder="Other amount" min="100" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="donorName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Mobile Number</label>
+                    <input type="tel" id="phone" name="mobileNumber" placeholder="Enter your mobile number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pan">PAN Number (for 80G receipt)</label>
+                    <input type="text" id="pan" name="panNumber" placeholder="Enter PAN (optional)">
+                </div>
+
+                <!-- New Form -->
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <input type="radio" id="upi" name="payment" value="upi" checked>
+                            <label for="upi">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>UPI</span>
+                            </label>
+                        </div>
+                        <div class="payment-method">
+                            <input type="radio" id="card" name="payment" value="card">
+                            <label for="card">
+                                <i class="far fa-credit-card"></i>
+                                <span>Credit/Debit Card</span>
+                            </label>
+                        </div>
+                        <div class="payment-method">
+                            <input type="radio" id="netbanking" name="payment" value="netbanking">
+                            <label for="netbanking">
+                                <i class="fas fa-university"></i>
+                                <span>Net Banking</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- UPI Payment Fields -->
+                    <div class="payment-details" id="upi-details">
+                        <div class="upi-options">
+                            <div class="upi-option active" data-type="qr">
+                                <i class="fas fa-qrcode"></i>
+                                <span>Scan QR Code</span>
+                            </div>
+                            <div class="upi-option" data-type="id">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Enter UPI ID</span>
+                            </div>
+                        </div>
+
+                        <div class="upi-content">
+                            <div class="upi-qr">
+                                <img src="/user/img/upi.png" alt="Paani Foundation UPI QR Code">
+                                <p>Scan this QR code with any UPI app to donate</p>
+                            </div>
+                            <div class="upi-id" style="display:none">
+                                <div class="form-group">
+                                    <label for="upi-id">Your UPI ID</label>
+                                    <input type="text" id="upi-id" name="upi_id" placeholder="e.g. 96222422@upi">
+                                </div>
+                                <button type="button" class="btn verify-btn">Verify & Pay</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Payment Fields -->
+                    <div class="payment-details" id="card-details" style="display:none">
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" name="card_number" placeholder="1234 5678 9012 3456">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-expiry">Expiry Date</label>
+                                <input type="text" id="card-expiry" name="card_expiry" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvv">CVV</label>
+                                <input type="text" id="card-cvv" name="card_cvv" placeholder="123">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" name="card_name" placeholder="As on card">
+                        </div>
+                    </div>
+
+                    <!-- Net Banking Fields -->
+                    <div class="payment-details" id="netbanking-details" style="display:none">
+                        <div class="form-group">
+                            <label for="bank-select">Select Your Bank</label>
+                            <select id="bank-select" name="bank">
+                                <option value="">-- Select Bank --</option>
+                                <option value="sbi">State Bank of India</option>
+                                <option value="hdfc">HDFC Bank</option>
+                                <option value="icici">ICICI Bank</option>
+                                <option value="axis">Axis Bank</option>
+                                <option value="pnb">Punjab National Bank</option>
+                                <option value="other">Other Bank</option>
+                            </select>
+                        </div>
+
+                        <div class="bank-info">
+                            <p>You will be redirected to your bank's secure payment gateway</p>
+                            <i class="fas fa-lock"></i>
+                            <span>100% Secure Payment</span>
+                        </div>
+                    </div>
+                </div>
+
+<!--                <div class="form-group">-->
+<!--                    <label>Payment Method</label>-->
+<!--                    <div class="payment-methods">-->
+<!--                        <div class="payment-method">-->
+<!--                            <input type="radio" id="upi" name="payment" value="upi" checked>-->
+<!--                            <label for="upi">-->
+<!--                                <i class="fas fa-mobile-alt"></i>-->
+<!--                                <span>UPI</span>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        <div class="payment-method">-->
+<!--                            <input type="radio" id="card" name="payment" value="card">-->
+<!--                            <label for="card">-->
+<!--                                <i class="far fa-credit-card"></i>-->
+<!--                                <span>Credit/Debit Card</span>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        <div class="payment-method">-->
+<!--                            <input type="radio" id="netbanking" name="payment" value="netbanking">-->
+<!--                            <label for="netbanking">-->
+<!--                                <i class="fas fa-university"></i>-->
+<!--                                <span>Net Banking</span>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <input type="checkbox" id="receipt" name="receipt" checked>-->
+<!--                    <label for="receipt">I need 80G tax exemption receipt</label>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <input type="checkbox" id="updates" name="updates" checked>-->
+<!--                    <label for="updates">Receive updates about our work</label>-->
+<!--                </div>-->
+
+                <button type="submit" class="btn donate-submit">
+                    <span>Donate Now</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+
+        <div class="donation-info">
+            <div class="info-card">
+                <h3>Why Donate?</h3>
+                <p>Every rupee you donate helps:</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Train villagers in water conservation</li>
+                    <li><i class="fas fa-check"></i> Build check dams and watershed structures</li>
+                    <li><i class="fas fa-check"></i> Create drought-resistant communities</li>
+                    <li><i class="fas fa-check"></i> Empower women as water stewards</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Tax Benefits</h3>
+                <p>Paani Foundation is registered under Section 80G of the Income Tax Act. Donations are eligible for 50% tax exemption.</p>
+                <div class="tax-example">
+                    <p><strong>Example:</strong> Donate ₹10,000 and claim ₹5,000 as tax deduction</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Other Ways to Give</h3>
+                <ul>
+                    <li><i class="fas fa-hand-holding-usd"></i> <strong>Bank Transfer:</strong> Account details available on request</li>
+                    <li><i class="fas fa-envelope"></i> <strong>Cheque:</strong> Payable to "Paani Foundation"</li>
+                    <li><i class="fas fa-briefcase"></i> <strong>Corporate Partnerships:</strong> CSR collaborations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<!--<section class="testimonials-section">-->
+<!--    <div class="container">-->
+<!--        <div class="section-header">-->
+<!--            <h2>Donor Stories</h2>-->
+<!--            <p>Why people support our mission</p>-->
+<!--        </div>-->
+
+<!--        <div class="testimonials-grid">-->
+<!--            <div class="testimonial-card">-->
+<!--                <div class="quote">-->
+<!--                    <i class="fas fa-quote-left"></i>-->
+<!--                    <p>I donate because I've seen villages transform from drought to abundance. Every rupee creates real impact.</p>-->
+<!--                </div>-->
+<!--                <div class="donor-info">-->
+<!--                    <img src="images/donor1.jpg" alt="Rajesh Kumar">-->
+<!--                    <h4>Rajesh Kumar</h4>-->
+<!--                    <p>Monthly Donor since 2018</p>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="testimonial-card">-->
+<!--                <div class="quote">-->
+<!--                    <i class="fas fa-quote-left"></i>-->
+<!--                    <p>Our company supports Paani Foundation because their community-led model delivers measurable results.</p>-->
+<!--                </div>-->
+<!--                <div class="donor-info">-->
+<!--                    <img src="images/donor2.jpg" alt="Priya Patel">-->
+<!--                    <h4>Priya Patel</h4>-->
+<!--                    <p>CSR Head, GreenTech Solutions</p>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="testimonial-card">-->
+<!--                <div class="quote">-->
+<!--                    <i class="fas fa-quote-left"></i>-->
+<!--                    <p>As an NRI, donating to Paani helps me give back to my homeland in the most meaningful way.</p>-->
+<!--                </div>-->
+<!--                <div class="donor-info">-->
+<!--                    <img src="images/donor3.jpg" alt="Amit Deshpande">-->
+<!--                    <h4>Amit Deshpande</h4>-->
+<!--                    <p>NRI Donor from USA</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!-- FAQ -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How will my donation be used?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Your donation directly supports our watershed development programs, including training villagers, building water conservation structures, and creating sustainable water management systems. 85% of funds go to field programs, 10% to training, and 5% to administrative costs.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Can I get a tax exemption certificate?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! Paani Foundation is registered under Section 80G of the Income Tax Act. For donations above ₹500, we provide 80G receipts eligible for 50% tax exemption. The receipt will be emailed within 15 days of your donation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How can I make a recurring donation?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>After completing this donation, you'll receive an option to make it monthly. You can also contact our donor support team at donors@paanifoundation.org to set up automated monthly contributions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What payment methods do you accept?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We accept UPI (Google Pay, PhonePe, etc.), credit/debit cards (Visa, Mastercard, Rupay), net banking, and cheques. International donors can contribute via PayPal or bank transfer.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How can I get updates about my donation's impact?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>All donors receive our quarterly impact report via email. For donations above ₹10,000, we provide personalized updates about the specific village or project you supported.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Donation Success Modal -->
+<div class="modal" id="donationModal" th:classappend="${showSuccessModal} ? 'active' : ''">
+    <div class="modal-content">
+        <div class="modal-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h3>Thank You for Your Donation!</h3>
+        <p>Your contribution will help create water-secure villages in Maharashtra. A receipt has been sent to your email.</p>
+        <div class="modal-buttons">
+            <button class="btn modal-close">Close</button>
+            <a href="#" class="btn share-btn">
+                <i class="fas fa-share-alt"></i>
+                Share
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--Footer Section -->
+<div th:replace="~{components/footer :: footer}"></div>
+
+<!-- Common Js -->
+<div th:replace="~{common :: common_js(~{::script})}"></div>
+
+<script th:src="@{/user/js/donation.js}"></script>
+</body>
+</html>

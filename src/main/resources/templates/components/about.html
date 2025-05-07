@@ -1,0 +1,59 @@
+<!-- About Us Section -->
+<section class="about-section" th:fragment="about">
+    <div class="container">
+        <div class="section-header">
+            <h2>About Paani Foundation</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <p>Paani Foundation is a non-profit organization established in 2016 with the mission to make Maharashtra drought-free through community participation and scientific water conservation techniques.</p>
+
+                <p>Founded by Satyajit Bhatkal and the team behind the TV show Satyamev Jayate, Paani Foundation works to empower rural communities to solve their own water problems through the annual Water Cup competition and year-round training programs.</p>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>5000+</h3>
+                        <p>Villages Trained</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10000+</h3>
+                        <p>Water Structures Built</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1M+</h3>
+                        <p>People Impacted</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-image">
+                <img src="/user/img/banner1.jpg" alt="Paani Foundation Team">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="container" th:fragment="team">
+    <div class="section-header">
+        <span class="subtitle">Meet The Team</span>
+        <h2>Our Leadership</h2>
+        <div class="divider"></div>
+    </div>
+
+    <div class="team-grid">
+        <div class="team-card" th:each="team : ${teams}">
+            <div class="team-image">
+                <img th:src="|data:image/jpeg;base64,${team.image}|" alt="Satyajit Bhatkal">
+                <!--                    <div class="social-links">-->
+                <!--                        <a href="#"><i class="fab fa-linkedin-in"></i></a>-->
+                <!--                        <a href="#"><i class="fab fa-twitter"></i></a>-->
+                <!--                    </div>-->
+            </div>
+            <h3 th:text="${team.name}">Satyajit Bhatkal</h3>
+            <p th:text="${team.designation}">Founder & CEO</p>
+        </div>
+    </div>
+</div>

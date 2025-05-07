@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${blog.title}">About Us</title>
+    <!--    Common Css-->
+    <div th:replace="~{common :: common(~{::link})}"></div>
+    <link rel="stylesheet" th:href="@{/user/css/about.css}">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar" th:fragment="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="/user/img/logo.png" alt="Paani Foundation Logo" >
+            <span>Paani Foundation</span>
+        </a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/activity}">Activities</a></li>
+                <li><a th:href="@{/blog/all}" class="active">Blog</a></li>
+                <li><a th:href="@{/news/all}">News</a></li>
+                <li><a th:href="@{/gallery/all}">Gallery</a></li>
+                <li><a th:href="@{/contact}" >Contact Us</a></li>
+                <li><a th:href="@{/donate}" class="btn donate-btn">Donate Now</a></li>
+            </ul>
+        </div>
+
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="row" th:fragment="about">
+    <div class="title">
+        <h2 th:text="${blog.title}">How One Village Became Water-Sufficient in Just One Year</h2>
+    </div>
+    <div class="img-wrapper">
+        <img th:src="|data:image/jpeg;base64,${blog.image}|" alt="about.jpg" />
+    </div>
+    <div class="content-wrapper">
+        <div>
+
+            <p th:text="${blog.description}">
+                Way back when I was 8 years old, my Grandmother bought me my first sewing machine. It was that darling little black Singer Featherweight Machine. I still have that same little gem, and I love it as much now, as I did when I first got it. That special little machine has seen a lot of stitch miles over the years and it still purrs right along, thanks to our service tech Rob, at Expert Sewing Center in Port Charlotte, FL where I teach.
+
+                These machines have regained popularity thanks to the quilters around the country. They are light weight to take to a class or sewing bee. They only sew a straight stitch, but that is all you sew when piecing a quilt.
+
+                For many years getting service and parts for them was a problem, but not any more. People on Ebay started finding spare parts and selling them, also machines that they found in garage sales, or old shops, etc. Of course you never knew what condition they were in so you take your chances buying one of those.
+
+                The original price of this machine in 1950 was $150. A few years ago, quilters were paying $350 t0 $500, depending on the condition and who was selling them. Now you are looking at paying any where from $800 to $2000 depending on the year and condition and if it has the original case, parts, manual and accessories. The ones made back in the 30’s and 40’s are the most expensive ones.
+
+                Getting parts has been a problem, but not any more. I discovered a website that caters only to the Featherweight. Of course, it is called the Featherweight Shop. Here’s the link https://singer-featherweight.com/ They have EVERYTHING. Parts, machines to buy, manuals, feet, cleaning supplies, etc. They have video tutorials that show how to thread the machine, clean it, service it yourself, and the history of the machine to name a few. It’s a family operated business and they eat sleep and breathe the Featherweight.
+
+                If you are a fanatic about your Featherweight, like I am, or you are interested in maybe buying one, then you must check out this web store.
+
+                As always, I will be doing more blogs in the future and I genuinely hope you enjoy them. Please pass my link on to your sewing friends. I try to make them informative and help you to enjoy what you are creating. If you haven’t already, please sign up to follow my blog as Google likes us bloggers to have followers. You will get an email each time I publish a new blog. Also, please check out my past blogs. They cover things like, stabilizer,  threads, needles, etc. Use it as a reference source. Also, if something new or different has come on the market, I will revise that particular blog, so you are always up to date.
+
+                Meantime, Happy Sewing!
+
+                Molly
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--Footer Section -->
+<div th:replace="~{components/footer :: footer}"></div>
+
+<!-- Common Js -->
+<div th:replace="~{common :: common_js(~{::script})}"></div>
+
+</body>
+</html>

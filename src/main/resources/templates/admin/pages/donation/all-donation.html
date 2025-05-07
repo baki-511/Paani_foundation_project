@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta donorName="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All Contact Us</title>
+    <!--    Common Css-->
+    <div th:replace="~{admin/common :: common(~{::link})}"></div>
+</head>
+<body>
+<input type="checkbox" id="sidebar-toggle">
+<!--Sidebar -->
+<div th:replace="~{admin/components/sidebar :: sidebar}"></div>
+
+
+<!--Main Content -->
+<div class="main-content">
+    <header th:replace="~{admin/components/header :: header}"></header>
+    <main>
+        <div class="container">
+            <!--Float Msg-->
+            <div th:replace="~{admin/components/float-msg :: toast}"></div>
+            <h2 class="text-center py-3 bg-light">All Donation</h2>
+            <div class="card" >
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr class="py-3 fs-5 bg-success text-light">
+                            <th scope="col">ID</th>
+                            <th scope="col" class="text-nowrap">Name</th>
+                            <th scope="col" class="text-nowrap">Email</th>
+                            <th scope="col" class="text-nowrap">Mobile</th>
+<!--                            <th scope="col" class="text-nowrap">PAN</th>-->
+                            <th scope="col" class="text-nowrap">Date</th>
+                            <th scope="col" class="text-nowrap">Amount</th>
+                            <th scope="col" class="text-nowrap">Payment</th>
+                            <th scope="col" class="text-nowrap">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="donation, iterStat : ${donations.content}" class="py-3">
+                            <td class="text-nowrap px-2" th:text="${iterStat.index + 1}"></td>
+                            <td class="text-nowrap px-2" th:text="${donation.donorName}"></td>
+                            <td class="text-nowrap px-2" th:text="${donation.email}"></td>
+                            <td class="text-nowrap px-2" th:text="${donation.mobileNumber}"></td>
+                            <td class="text-nowrap px-2" th:text="${donation.donationDate}"></td>
+                            <td class="text-nowrap px-2" th:text="${donation.amount}"></td>
+                            <td class="text-nowrap px-2" th:text="${donation.payment}"></td>
+                            <td class="text-nowrap px-2">
+                                <a th:href="@{'/admin/donation/delete/'+ ${donation.donationId}}"
+                                   class="btn btn-danger"><i class="fa-regular fa-trash-can fa-xs"></i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li th:if="${currentPage!=0}" class="page-item">
+                                <a class="page-link" th:href="@{|/admin/donation/all/${currentPage - 1}?size=${size}|}">Prev</a>
+                            </li>
+                            <li th:each="i:${#numbers.sequence(1,totalPages)}" th:classappend="${currentPage == (i-1) ? 'active': ''}" class="page-item">
+                                <a class="page-link" th:href="@{|/admin/donation/all/${i - 1}?size=${size}|}">[[${i}]]</a>
+                            </li>
+                            <li th:if="${currentPage + 1!=totalPages}" class="page-item">
+                                <a class="page-link" th:href="@{|/admin/donation/all/${currentPage + 1}?size=${size}|}">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+<!--Common Js-->
+<div th:replace="~{admin/common :: common_js(~{::script})}"></div>
+</body>
+</html>
+

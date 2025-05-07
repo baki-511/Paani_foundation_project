@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${news.title}">About Us</title>
+    <!--    Common Css-->
+    <div th:replace="~{common :: common(~{::link})}"></div>
+    <link rel="stylesheet" th:href="@{/user/css/about.css}">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar" th:fragment="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="/user/img/logo.png" alt="Paani Foundation Logo" >
+            <span>Paani Foundation</span>
+        </a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/activity}">Activities</a></li>
+                <li><a th:href="@{/blog/all}">Blog</a></li>
+                <li><a th:href="@{/news/all}" class="active">News</a></li>
+                <li><a th:href="@{/gallery/all}">Gallery</a></li>
+                <li><a th:href="@{/contact}" >Contact Us</a></li>
+                <li><a th:href="@{/donate}" class="btn donate-btn">Donate Now</a></li>
+            </ul>
+        </div>
+
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="row" th:fragment="about">
+    <div class="title">
+        <h2 th:text="${news.title}">How One Village Became Water-Sufficient in Just One Year</h2>
+    </div>
+    <div class="img-wrapper">
+        <img th:src="|data:image/jpeg;base64,${news.image}|" alt="about.jpg" />
+    </div>
+    <div class="content-wrapper">
+        <div>
+
+            <p th:text="${news.description}">
+
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--Footer Section -->
+<div th:replace="~{components/footer :: footer}"></div>
+
+<!-- Common Js -->
+<div th:replace="~{common :: common_js(~{::script})}"></div>
+
+</body>
+</html>

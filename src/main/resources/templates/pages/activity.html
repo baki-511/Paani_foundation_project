@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternating Activities Layout</title>
+    <!--    Common Css-->
+    <div th:replace="~{common :: common(~{::link})}"></div>
+    <link rel="stylesheet" th:href="@{/user/css/activity.css}">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar" th:fragment="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="/user/img/logo.png" alt="Paani Foundation Logo" >
+            <span>Paani Foundation</span>
+        </a>
+
+        <div class="nav-links">
+            <ul>
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/activity}" class="active">Activities</a></li>
+                <li><a th:href="@{/blog/all}">Blog</a></li>
+                <li><a th:href="@{/news/all}">News</a></li>
+                <li><a th:href="@{/gallery/all}">Gallery</a></li>
+                <li><a th:href="@{/contact}" >Contact Us</a></li>
+                <li><a th:href="@{/donate}" class="btn donate-btn">Donate Now</a></li>
+            </ul>
+        </div>
+
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+</nav>
+
+<section class="activities-section">
+    <div class="container">
+        <h2 class="section-title">Our Activities</h2>
+        <p class="section-subtitle">Discover the exciting experiences we offer</p>
+
+        <div class="activities-container">
+            <!-- Activity 1 - Image Right -->
+            <div class="activity-row" th:each="activity, iterStat : ${activities}"
+                 th:class="${iterStat.index % 2 == 1} ? 'activity-row reverse' : 'activity-row'">
+                <div class="activity-content">
+                    <h3 class="activity-title" th:text="${activity.title}">Mountain Hiking</h3>
+                    <p class="activity-description" th:text="${activity.description}">Experience breathtaking views as you hike through scenic mountain trails. Our guided tours take you to the most beautiful peaks with experienced guides who know the terrain intimately. Perfect for all skill levels.</p>
+<!--                    <a href="#" class="activity-btn">Learn More <i class="fas fa-arrow-right"></i></a>-->
+                </div>
+                <div class="activity-image">
+                    <img  th:src="|data:image/jpeg;base64,${activity.image}|" alt="Mountain Hiking">
+                </div>
+            </div>
+
+            <!-- Activity 2 - Image Left -->
+<!--            <div class="activity-row reverse">-->
+<!--                <div class="activity-content">-->
+<!--                    <h3 class="activity-title">Kayaking Adventure</h3>-->
+<!--                    <p class="activity-description">Paddle through crystal-clear waters and explore hidden coves on our kayaking expeditions. Suitable for beginners and experts alike, with all equipment provided. Discover marine life and coastal scenery.</p>-->
+<!--                    <a href="#" class="activity-btn">Learn More <i class="fas fa-arrow-right"></i></a>-->
+<!--                </div>-->
+<!--                <div class="activity-image">-->
+<!--                    <img src="/user/img/banner2.jpg" alt="Kayaking Adventure">-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <!-- Activity 3 - Image Right -->
+<!--            <div class="activity-row">-->
+<!--                <div class="activity-content">-->
+<!--                    <h3 class="activity-title">Wildlife Safari</h3>-->
+<!--                    <p class="activity-description">Get up close with nature on our wildlife safari tours. Spot rare species in their natural habitat with our expert guides. Morning and evening tours available with professional photography tips.</p>-->
+<!--                    <a href="#" class="activity-btn">Learn More <i class="fas fa-arrow-right"></i></a>-->
+<!--                </div>-->
+<!--                <div class="activity-image">-->
+<!--                    <img src="/user/img/banner3.jpg" alt="Wildlife Safari">-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <!-- Activity 4 - Image Left -->
+<!--            <div class="activity-row reverse">-->
+<!--                <div class="activity-content">-->
+<!--                    <h3 class="activity-title">Cultural Tours</h3>-->
+<!--                    <p class="activity-description">Immerse yourself in local traditions and history. Visit ancient sites, meet local artisans, and taste authentic cuisine. Our cultural tours provide deep insights into the region's heritage.</p>-->
+<!--                    <a href="#" class="activity-btn">Learn More <i class="fas fa-arrow-right"></i></a>-->
+<!--                </div>-->
+<!--                <div class="activity-image">-->
+<!--                    <img src="/user/img/ag1.jpg" alt="Cultural Tours">-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+</section>
+
+<!--Footer Section -->
+<div th:replace="~{components/footer :: footer}"></div>
+
+<!-- Common Js -->
+<div th:replace="~{common :: common_js(~{::script})}"></div>
+<script th:src="@{/user/js/activity.js}"></script>
+</body>
+</html>

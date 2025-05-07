@@ -1,0 +1,77 @@
+<!-- Gallery Section -->
+
+<section class="gallery-section" th:fragment="gallery">
+    <div class="container">
+        <h2 class="section-title">Our Gallery</h2>
+
+        <div class="gallery-grid">
+            <!-- Nature Images -->
+            <a th:href="|data:image/jpeg;base64,${gallery.image}|" data-lightbox="nature"
+               data-title="Beautiful Waterfall" class="gallery-item nature" th:each="gallery : ${gallaries}">
+                <img th:src="|data:image/jpeg;base64,${gallery.image}|" alt="Nature Image">
+                <div class="overlay">
+                    <span class="zoom-icon">+</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section class="gallery-section" >
+    <div class="container">
+        <div class="section-header">
+            <h2>Gallery</h2>
+            <div class="underline"></div>
+            <p>Moments from our water conservation journey</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/gallery1.jpg" alt="Water Conservation Work">
+                <div class="overlay">
+                    <h3>Community Work</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery2.jpg" alt="Training Session">
+                <div class="overlay">
+                    <h3>Training Session</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery3.jpg" alt="Water Structure">
+                <div class="overlay">
+                    <h3>Water Structure</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery4.jpg" alt="Village Meeting">
+                <div class="overlay">
+                    <h3>Village Meeting</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery5.jpg" alt="Celebration">
+                <div class="overlay">
+                    <h3>Award Celebration</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery6.jpg" alt="Before After">
+                <div class="overlay">
+                    <h3>Transformation</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="#" class="btn gallery-btn">View More</a>
+        </div>
+    </div>
+</section>
