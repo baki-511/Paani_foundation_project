@@ -21,13 +21,13 @@
             <div class="footer-col links-col">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Activities</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a th:href="@{/home}">Home</a></li>
+                    <li><a th:href="@{/about}">About Us</a></li>
+                    <li><a th:href="@{/activity}">Activities</a></li>
+                    <li><a th:href="@{/blog/all}">Blog</a></li>
+                    <li><a th:href="@{/news/all}">News</a></li>
+                    <li><a th:href="@{/gallery/all}">Gallery</a></li>
+                    <li><a th:href="@{/contact}">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -43,7 +43,7 @@
             <div class="footer-col donate-col">
                 <h3>Support Our Work</h3>
                 <p>Your donation helps us train more villages in water conservation techniques.</p>
-                <a href="#" class="btn donate-btn">Donate Now</a>
+                <a th:href="@{/donate}" class="btn donate-btn">Donate Now</a>
             </div>
         </div>
 
